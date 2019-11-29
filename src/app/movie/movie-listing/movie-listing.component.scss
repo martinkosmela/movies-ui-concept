@@ -7,16 +7,19 @@
   left: 0;
   background-color: $light;
   color: $dark;
-  height: 30%;
-  width: 80%;
+  height: 85%;
+  width: 100%;
   padding: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  // animation: showIn .4s ease-in forwards;
+  border-radius: 25px;
+  // left: 50%;
+  // transform: translateX(-50%);
+  opacity: 0;
+  transform: scaleX(0.7);
+  animation: showIn .2s .2s ease-in forwards;
   .movie-listing__close {
     position: absolute;
-    top: 6px;
-    left: 6px;
+    top: 10px;
+    left: 10px;
     border: 1px solid $grey;
     color: $grey;
     padding: 5px 10px;
@@ -55,10 +58,15 @@
 
 @keyframes showIn {
   0% {
-    transform: scale(1, 1);
+    transform: scaleX(.7);
+    opacity: 0;
+  }
+  99% {
+    opacity: 1;
   }
   100% {
-    transform: scale(2, 3);
+    transform: scaleX(1);
+    opacity: 1;
     // transform-origin: center bottom;
   }
 }

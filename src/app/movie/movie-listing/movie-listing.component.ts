@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TimelineMax } from 'gsap';
 
 import { Movie } from '../../models/movie';
 

@@ -27,9 +27,9 @@ export class ShowcaseComponent implements OnInit {
     controller: {
       inverse: true
     },
-    slidesPerView: 1.2,
+    slidesPerView: 1.3,
     centeredSlides: true,
-    spaceBetween: 10,
+    spaceBetween: 20,
     observer: true,
     on: {
       click: () => {
