@@ -16,16 +16,14 @@ export class MovieListingComponent implements OnInit {
   @Output() detailsToggled = new EventEmitter<{reveal: boolean}>();
 
   @ViewChild('container', {static: true}) listingContainer: ElementRef;
-
-  public get isAnimating(): boolean {
-		return this._animating;
-  }
-  private _animating: boolean;
+  @ViewChild('header', {static: true}) listingHeader: ElementRef;
+  @ViewChild('rating', {static: true}) listingRating: ElementRef;
 
   constructor() { }
 
   ngOnInit() {
     this.loadContainer();
+    this.loadDetails();
   }
 
   onCloseListing() {
@@ -45,11 +43,37 @@ export class MovieListingComponent implements OnInit {
       scale: 1,
       y: 0,
       opacity: 1,
-      delay: .2,
+      delay: 0,
       ease: "back"
     });
     return showContainer;
   }
+
+  loadDetails(): void {
+    let showDetails: TimelineMax = new TimelineMax();
+    showDetails
+      .fromTo(this.listingHeader.nativeElement, .3, {
+        y: 400,
+      },
+      {
+        y: 0,
+        delay: 0.1,
+        ease: "back"
+      })
+      .fromTo(this.listingRating.nativeElement, .3, {
+        y: 400,
+      },
+      {
+        y: 0,
+        ease: "back"
+      });
+    return showDetails;
+  }
+
+  // .addLabel("greyAndPink")
+  // //start both of these animations at the same time, at the "greyAndPink" label.
+  // .to(".grey", {duration: 1, x: 200, scale: 2, y: 20}, "greyAndPink") 
+  // .to(".pink", {duration: 1, x: 200, rotation: 360}, "greyAndPink"); 
   
 
 }

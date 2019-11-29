@@ -33,7 +33,7 @@
   .movie-listing__genre-list {
     min-width: 100%;
     height: 24px;
-    overflow: scroll;
+    overflow-x: scroll;
     display: flex;
     .movie-listing__genre {
       flex: 1;
