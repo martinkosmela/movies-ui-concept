@@ -1,3 +1,9 @@
+# Technologies used
+
+- Angular 8
+- OMDB API http://www.omdbapi.com/ 
+- Swiperjs https://swiperjs.com/
+
 # MoviesUiConcept
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
