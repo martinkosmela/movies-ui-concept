@@ -1,0 +1,17 @@
+<swiper class="swiper-container-showcase-thumbs" #showcaseThumbs [config]="showcaseThumbsConfig">
+  <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let movie of moviesList; let index = index;">
+          <!-- <img class="showcase__img" [src]="movie?.Poster" alt="showcase-image"> -->
+          <img class="showcase__img swiper-lazy" data-src="{{movie.Poster}}" alt="showcase-image">
+          <div class="showcase__gradient"></div>
+      </div>
+  </div>
+</swiper>
+<swiper class="swiper-container-showcase-main" #showcaseMain [config]="showcaseMainConfig">
+  <div class="swiper-wrapper">
+    <ng-container *ngFor="let movie of moviesList.reverse()">
+        <app-movie-details (detailsToggled)="onDetailsToggled($event)" class="swiper-slide" [detailsReveal]="detailsRevealed" [movie]="movie"></app-movie-details>
+    </ng-container>
+  </div>
+</swiper>
+<app-movie-listing *ngIf="detailsRevealed" (detailsToggled)="onDetailsToggled($event)" [movie]="selectedMovie" [genres]="selectedMovieGenres"></app-movie-listing>

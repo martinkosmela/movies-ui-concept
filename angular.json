@@ -28,9 +28,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/swiper/css/swiper.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/swiper/js/swiper.js"
+            ]
           },
           "configurations": {
             "production": {

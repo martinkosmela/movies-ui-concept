@@ -1,0 +1,49 @@
+@import "../../styles";
+
+.swiper-container-showcase-thumbs {
+  background-color: $light;
+  color: $dark;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  .swiper-wrapper {
+    top: 0;
+    left: 0;
+  }
+  .showcase__img {
+    width: 100%;
+    height: 100%;
+  }
+  .showcase__gradient {
+    background: rgba(255, 255, 255, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .85) 70%, rgba(255, 255, 255, 1) 100%) repeat scroll 0 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
+.swiper-container-showcase-main {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  .swiper-slide {
+    transition: opacity .3s ease-in;
+    width: 80%;
+  }
+  .swiper-slide-active {
+    // transition: width .2s ease-in;
+  }
+  .swiper-slide-prev, 
+  .swiper-slide-next {
+    opacity: 0.75;
+  }
+}

@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,500,600,700&display=swap');
+
+@import 'styles/variables';
+@import 'styles/base';
+
+@import '../node_modules/font-awesome/scss/font-awesome';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $dark;
+  color: $light;
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+.information {
+  font-size: 2rem;
+  padding: 10px;
+  display: none;
+}
+
+@media only screen and (min-width: 500px) {
+  .information {
+    display: block;
+  }
+  app-root {
+    display: none;
+  }
+}

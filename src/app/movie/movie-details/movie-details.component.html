@@ -1,0 +1,18 @@
+<div class="movie-details" [ngClass]="{'movie-details__reveal': detailsReveal === true}" (click)="showDetails()">
+  <div class="movie-details__img">
+    <img [src]="movie.Poster" [alt]="movie?.Title">
+  </div>
+  <div class="movie-details__title">
+    {{ movie?.Title }}
+  </div>
+  <div class="movie-details__genre-list">
+    <div class="movie-details__genre" *ngFor="let genre of genreList">{{ genre }}</div>
+  </div>
+  <app-movie-rating [rating]="movie.imdbRating"></app-movie-rating>
+  <div class="movie-details__icon-more">
+    <i class="fa fa-ellipsis-h"></i>
+  </div>
+  <div class="movie-details__btn-more">
+    <button class="btn btn-solid" type="button" (click)="getTicket()">Buy ticket</button>
+  </div>
+</div>

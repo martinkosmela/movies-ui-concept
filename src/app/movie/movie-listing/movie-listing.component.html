@@ -1,0 +1,12 @@
+<div class="movie-listing">
+  <div class="movie-listing__close" (click)="onCloseListing()">
+    X
+  </div>
+  <div class="movie-listing__header">
+    {{ movie.Title }}
+  </div>
+  <div class="movie-listing__genre-list">
+    <div class="movie-listing__genre" *ngFor="let genre of genres">{{ genre }}</div>
+  </div>
+  <app-movie-rating [rating]="movie.imdbRating"></app-movie-rating>
+</div>
