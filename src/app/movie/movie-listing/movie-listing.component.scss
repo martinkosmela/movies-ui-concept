@@ -11,11 +11,8 @@
   width: 100%;
   padding: 30px;
   border-radius: 25px;
-  // left: 50%;
-  // transform: translateX(-50%);
   opacity: 0;
   transform: scaleX(0.7);
-  animation: showIn .2s .2s ease-in forwards;
   .movie-listing__close {
     position: absolute;
     top: 10px;
@@ -53,20 +50,5 @@
         margin-right: 0;
       }
     }
-  }
-}
-
-@keyframes showIn {
-  0% {
-    transform: scaleX(.7);
-    opacity: 0;
-  }
-  99% {
-    opacity: 1;
-  }
-  100% {
-    transform: scaleX(1);
-    opacity: 1;
-    // transform-origin: center bottom;
   }
 }
