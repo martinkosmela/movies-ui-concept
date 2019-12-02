@@ -5,8 +5,11 @@
   <div class="movie-listing__header" #header>
     {{ movie.Title }}
   </div>
-  <div #rating class="movie-listing__genre-list">
+  <div class="movie-listing__genre-list" #genre>
     <div class="movie-listing__genre" *ngFor="let genre of genres">{{ genre }}</div>
   </div>
-  <app-movie-rating [rating]="movie.imdbRating"></app-movie-rating>
+  <app-movie-rating [rating]="movie.imdbRating" [parent]="'listing'"></app-movie-rating>
+  <div class="movie-details__btn-more" #btn>
+    <button class="btn btn-solid" type="button" (click)="onGetTicket()">Buy ticket</button>
+  </div>
 </div>

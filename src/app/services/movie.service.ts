@@ -28,4 +28,8 @@ export class MovieService {
     return this.http.get<Movie[]>(`${this.apiUrl}/?t=${term}&y=2019&apikey=${this.apiKey}`);
   }
 
+  getTicket() {
+    console.log('get ticket from service')
+  }
+
 }

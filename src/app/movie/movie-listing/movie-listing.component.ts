@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { TimelineMax, TweenMax } from 'gsap/all';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, ViewChildren } from '@angular/core';
+import { TimelineMax } from 'gsap/all';
 
 import { Movie } from '../../models/movie';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie-listing',
@@ -17,9 +18,12 @@ export class MovieListingComponent implements OnInit {
 
   @ViewChild('container', {static: true}) listingContainer: ElementRef;
   @ViewChild('header', {static: true}) listingHeader: ElementRef;
-  @ViewChild('rating', {static: true}) listingRating: ElementRef;
+  @ViewChild('genre', {static: true}) listingGenre: ElementRef;
+  @ViewChild('btn', {static: true}) listingBtn: ElementRef;
 
-  constructor() { }
+  constructor(
+    private movieService: MovieService
+  ) { }
 
   ngOnInit() {
     this.loadContainer();
@@ -33,47 +37,54 @@ export class MovieListingComponent implements OnInit {
     })
   }
 
+  onGetTicket() {
+    this.movieService.getTicket();
+  }
+
 	loadContainer(): void {
     let showContainer: TimelineMax = new TimelineMax();
-    showContainer.fromTo(this.listingContainer.nativeElement, .3, 
-      {
-        y: 100,
-      },  
+    showContainer.to(this.listingContainer.nativeElement, .6,
       {
       scale: 1,
-      y: 0,
       opacity: 1,
       delay: 0,
       ease: "back"
-    });
+    })
     return showContainer;
   }
 
   loadDetails(): void {
     let showDetails: TimelineMax = new TimelineMax();
     showDetails
-      .fromTo(this.listingHeader.nativeElement, .3, {
+      .fromTo(this.listingHeader.nativeElement, .2, {
         y: 400,
+        opacity: 0,
       },
       {
         y: 0,
-        delay: 0.1,
+        delay: 0.3,
+        opacity: 1,
         ease: "back"
-      })
-      .fromTo(this.listingRating.nativeElement, .3, {
+      }, 0)
+      .add("start", 0.3)
+      .fromTo(this.listingGenre.nativeElement, .2, {
         y: 400,
+        opacity: 0,
       },
       {
         y: 0,
+        opacity: 1,
         ease: "back"
-      });
+      }, "start")
+      .fromTo(this.listingBtn.nativeElement, .2, {
+        scaleX: .8,
+      },
+      {
+        scaleX: 1,
+        ease: "back"
+      }, "start");
     return showDetails;
   }
-
-  // .addLabel("greyAndPink")
-  // //start both of these animations at the same time, at the "greyAndPink" label.
-  // .to(".grey", {duration: 1, x: 200, scale: 2, y: 20}, "greyAndPink") 
-  // .to(".pink", {duration: 1, x: 200, rotation: 360}, "greyAndPink"); 
   
 
 }

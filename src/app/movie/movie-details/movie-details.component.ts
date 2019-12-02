@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { Movie } from '../../models/movie';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -15,7 +16,9 @@ export class MovieDetailsComponent implements OnInit {
 
   @Output() detailsToggled = new EventEmitter<{reveal: boolean, movie: Movie, genres: string[]}>();
 
-  constructor() { }
+  constructor(
+    private movieService: MovieService
+  ) { }
 
   ngOnInit() {
     this.genreList = this.getGenres();
@@ -38,7 +41,7 @@ export class MovieDetailsComponent implements OnInit {
 
   getTicket() {
     event.stopPropagation();
-    console.log('buy ticket')
+    this.movieService.getTicket();
   }
 
 }

@@ -15,9 +15,9 @@
     position: relative;
     font-family: FontAwesome;
     color: $grey;
-    &:before {
-      content: "\f006 \f006 \f006 \f006 \f006";
-    }
+    // &:before {
+    //   content: "\f006 \f006 \f006 \f006 \f006";
+    // }
   }
   .movie-details__stars-inner {
     position: absolute;
