@@ -9,6 +9,17 @@
     <div class="movie-listing__genre" *ngFor="let genre of genres">{{ genre }}</div>
   </div>
   <app-movie-rating [rating]="movie.imdbRating" [parent]="'listing'"></app-movie-rating>
+  <div class="movie-listing__director">
+    <div class="movie-details__body">Director - {{ movie.Director }}</div>
+  </div>
+  <div class="movie-listing__details" #details>
+    <div class="movie-details__header">Actors</div>
+    <div class="movie-details__body">{{ movie.Actors }}</div>
+    <div class="movie-details__header">Production</div>
+    <div class="movie-details__body">{{ movie.Production }} ({{ movie.Released }})</div>
+    <div class="movie-details__header">Introduction</div>
+    <div class="movie-details__body">{{ movie.Plot }}</div>
+  </div>
   <div class="movie-details__btn-more" #btn>
     <button class="btn btn-solid" type="button" (click)="onGetTicket()">Buy ticket</button>
   </div>

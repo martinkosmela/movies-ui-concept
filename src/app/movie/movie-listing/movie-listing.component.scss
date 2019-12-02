@@ -15,6 +15,8 @@
   transform: scaleX(0.7);
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
   .movie-listing__close {
     position: absolute;
     top: 10px;
@@ -34,9 +36,9 @@
   }
   .movie-listing__genre-list {
     min-width: 100%;
-    height: 24px;
-    overflow-x: scroll;
+    overflow-x: auto;
     display: flex;
+    min-height: 24px;
     .movie-listing__genre {
       flex: 1;
       display: flex;
@@ -48,12 +50,30 @@
       color: $grey;
       text-transform: capitalize;
       margin-right: 5px;
+      padding: 0 5px;
+      min-width: 70px;
       &:last-child {
         margin-right: 0;
       }
     }
   }
+  .movie-listing__director {
+    margin: 0 auto;
+  }
   .movie-details__btn-more {
     margin-top: auto;
+    padding-top: 15px;
   }
+}
+
+.movie-details__body {
+  font-size: .9rem;
+  color: $dark-grey;
+  margin: 5px 0;
+}
+
+.movie-details__header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 15px 0;
 }

@@ -13,6 +13,7 @@
   padding: 25px;
   color: $dark;
   overflow-y: scroll;
+  overflow-x: hidden;
   .movie-details__img {
     width: 100%;
     height: 62%;
@@ -32,7 +33,7 @@
   }
   .movie-details__genre-list {
     min-width: 100%;
-    height: 24px;
+    min-height: 24px;
     overflow-x: scroll;
     display: flex;
     .movie-details__genre {
@@ -46,6 +47,7 @@
       color: $grey;
       text-transform: capitalize;
       margin-right: 5px;
+      padding: 0 5px;
       &:last-child {
         margin-right: 0;
       }
@@ -56,24 +58,5 @@
     margin: 5px 0;
     cursor: pointer;
     font-size: 1.4rem;
-  }
-}
-
-.movie-details__body {
-  font-size: .9rem;
-  color: $dark-grey;
-  margin: 5px 0;
-}
-
-.movie-details__header {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 15px 0;
-}
-
-.movie-details__reveal {
-  .movie-details__img {
-  }
-  .movie-details__icon-more {
   }
 }

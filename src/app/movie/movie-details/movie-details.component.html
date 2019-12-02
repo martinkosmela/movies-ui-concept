@@ -1,4 +1,4 @@
-<div class="movie-details" [ngClass]="{'movie-details__reveal': detailsReveal === true}" (click)="showDetails()">
+<div class="movie-details" (click)="showDetails()">
   <div class="movie-details__img">
     <img [src]="movie.Poster" [alt]="movie?.Title">
   </div>
@@ -6,7 +6,7 @@
     {{ movie?.Title }}
   </div>
   <div class="movie-details__genre-list">
-    <div class="movie-details__genre" *ngFor="let genre of genreList">{{ genre }}</div>
+    <div class="movie-details__genre" *ngFor="let genre of genreList.slice(0, 3)">{{ genre }}</div>
   </div>
   <app-movie-rating [rating]="movie.imdbRating"></app-movie-rating>
   <div class="movie-details__icon-more">

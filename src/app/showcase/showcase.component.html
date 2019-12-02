@@ -14,4 +14,4 @@
     </ng-container>
   </div>
 </swiper>
-<app-movie-listing *ngIf="detailsRevealed" (detailsToggled)="onDetailsToggled($event)" [movie]="selectedMovie" [genres]="selectedMovieGenres"></app-movie-listing>
+<app-movie-listing *ngIf="detailsRevealed" (detailsToggled)="onDetailsToggled($event)" [movie]="selectedMovie" [genres]="selectedMovieGenres" #container></app-movie-listing>

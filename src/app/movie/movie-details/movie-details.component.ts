@@ -26,10 +26,11 @@ export class MovieDetailsComponent implements OnInit {
 
   getGenres() {
     return this.movie.Genre.split(/[ ,]+/);
-    // return ['crime', 'drama', 'thriller','comedy', 'adventure'];
+    // return ['crime', 'drama', 'thriller','comedy', 'adventure','comedy', 'adventure'];
   }
 
   showDetails() {
+    event.stopPropagation();
     console.log('show movie details')
     this.detailsReveal = true;
     this.detailsToggled.emit({

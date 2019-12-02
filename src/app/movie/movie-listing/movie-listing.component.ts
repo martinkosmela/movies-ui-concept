@@ -19,6 +19,7 @@ export class MovieListingComponent implements OnInit {
   @ViewChild('container', {static: true}) listingContainer: ElementRef;
   @ViewChild('header', {static: true}) listingHeader: ElementRef;
   @ViewChild('genre', {static: true}) listingGenre: ElementRef;
+  @ViewChild('details', {static: true}) listingDetails: ElementRef;
   @ViewChild('btn', {static: true}) listingBtn: ElementRef;
 
   constructor(
@@ -26,53 +27,66 @@ export class MovieListingComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadContainer();
     this.loadDetails();
   }
 
   onCloseListing() {
+    this.hideContainer();
     console.log('close');
-    this.detailsToggled.emit({
-      reveal: false
-    })
+    setTimeout(() => {
+      this.detailsToggled.emit({
+        reveal: false
+      })
+    }, 300)
   }
 
   onGetTicket() {
     this.movieService.getTicket();
   }
 
-	loadContainer(): void {
-    let showContainer: TimelineMax = new TimelineMax();
-    showContainer.to(this.listingContainer.nativeElement, .6,
+	hideContainer(): void {
+    let hideContainer: TimelineMax = new TimelineMax();
+    hideContainer.to(this.listingContainer.nativeElement, .3,
       {
-      scale: 1,
-      opacity: 1,
-      delay: 0,
-      ease: "back"
-    })
-    return showContainer;
+        scaleX: 0.7,
+        opacity: 0,
+        ease: "power4"
+      })
+    return hideContainer;
   }
 
   loadDetails(): void {
     let showDetails: TimelineMax = new TimelineMax();
     showDetails
+    .to(this.listingContainer.nativeElement, .6,
+        {
+        scale: 1,
+        opacity: 1,
+        ease: "back"
+      }, 0)
+      .add("start", .3)
       .fromTo(this.listingHeader.nativeElement, .2, {
         y: 400,
         opacity: 0,
       },
       {
         y: 0,
-        delay: 0.3,
         opacity: 1,
         ease: "back"
-      }, 0)
-      .add("start", 0.3)
+      }, "start")
       .fromTo(this.listingGenre.nativeElement, .2, {
         y: 400,
         opacity: 0,
       },
       {
         y: 0,
+        opacity: 1,
+        ease: "back"
+      }, "start")
+      .fromTo(this.listingDetails.nativeElement, .2, {
+        opacity: 0,
+      },
+      {
         opacity: 1,
         ease: "back"
       }, "start")

@@ -72,6 +72,6 @@ export class ShowcaseComponent implements OnInit {
     this.detailsRevealed = detailsToggle.reveal;
     this.selectedMovie = detailsToggle.movie;
     this.selectedMovieGenres = detailsToggle.genres
-  } 
+  }
 
 }
