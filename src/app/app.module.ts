@@ -10,6 +10,7 @@ import { ShowcaseComponent } from './showcase/showcase.component';
 import { MovieDetailsComponent } from './movie/movie-details/movie-details.component';
 import { MovieRatingComponent } from './movie/movie-rating/movie-rating.component';
 import { MovieListingComponent } from './movie/movie-listing/movie-listing.component';
+import { MovieSeatsComponent } from './movie/movie-seats/movie-seats.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MovieListingComponent } from './movie/movie-listing/movie-listing.compo
     ShowcaseComponent,
     MovieDetailsComponent,
     MovieRatingComponent,
-    MovieListingComponent
+    MovieListingComponent,
+    MovieSeatsComponent
   ],
   imports: [
     BrowserModule,

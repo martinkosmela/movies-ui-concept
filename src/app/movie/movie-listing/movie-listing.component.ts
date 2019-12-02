@@ -15,12 +15,15 @@ export class MovieListingComponent implements OnInit {
   @Input() genres: string[];
 
   @Output() detailsToggled = new EventEmitter<{reveal: boolean}>();
+  @Output() chooseSeatsToggled = new EventEmitter<{reveal: boolean}>();
 
   @ViewChild('container', {static: true}) listingContainer: ElementRef;
   @ViewChild('header', {static: true}) listingHeader: ElementRef;
   @ViewChild('genre', {static: true}) listingGenre: ElementRef;
   @ViewChild('details', {static: true}) listingDetails: ElementRef;
   @ViewChild('btn', {static: true}) listingBtn: ElementRef;
+  @ViewChild('btnInner', {static: true}) listingBtnInner: ElementRef;
+  @ViewChild('btnInnerTxt', {static: true}) listingBtnInnerTxt: ElementRef;
 
   constructor(
     private movieService: MovieService
@@ -42,6 +45,11 @@ export class MovieListingComponent implements OnInit {
 
   onGetTicket() {
     this.movieService.getTicket();
+    if(this.animateBtn()) {
+      this.chooseSeatsToggled.emit({
+        reveal: true
+      })
+    };
   }
 
 	hideContainer(): void {
@@ -58,7 +66,7 @@ export class MovieListingComponent implements OnInit {
   loadDetails(): void {
     let showDetails: TimelineMax = new TimelineMax();
     showDetails
-    .to(this.listingContainer.nativeElement, .6,
+      .to(this.listingContainer.nativeElement, .6,
         {
         scale: 1,
         opacity: 1,
@@ -99,6 +107,23 @@ export class MovieListingComponent implements OnInit {
       }, "start");
     return showDetails;
   }
-  
+
+  animateBtn(): boolean {
+    let animateButton: TimelineMax = new TimelineMax();
+    animateButton
+      .to(this.listingBtnInnerTxt.nativeElement, .1, {
+        'display': 'none'
+      }, 0)
+      .to(this.listingBtn.nativeElement, .1, {
+        'margin': 'auto auto 0 auto'
+      }, 0)
+      .to(this.listingBtnInner.nativeElement, .3, {
+        "width": "50px",
+        "height": "50px",
+        "borderRadius": "50px",
+        "backgroundColor": "#222020"
+      }, 0)
+    return true;
+  }
 
 }

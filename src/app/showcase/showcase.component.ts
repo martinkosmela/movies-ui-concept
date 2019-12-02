@@ -17,6 +17,7 @@ export class ShowcaseComponent implements OnInit {
   detailsRevealed: boolean = false;
   selectedMovie: Movie;
   selectedMovieGenres: string[];
+  chooseSeatsRevealed: boolean = false;
 
   @ViewChild('showcaseMain', {static: true}) showcaseMain?: SwiperComponent;
   @ViewChild('showcaseThumbs', {static: true}) showcaseThumbs?: SwiperComponent;
@@ -72,6 +73,11 @@ export class ShowcaseComponent implements OnInit {
     this.detailsRevealed = detailsToggle.reveal;
     this.selectedMovie = detailsToggle.movie;
     this.selectedMovieGenres = detailsToggle.genres
+  }
+
+  onChooseSeatsToggled(chooseSeatsToggled: {reveal: boolean}) {
+    this.chooseSeatsRevealed = chooseSeatsToggled.reveal;
+    console.log('complete from parent', this.chooseSeatsRevealed)
   }
 
 }

@@ -21,6 +21,6 @@
     <div class="movie-details__body">{{ movie.Plot }}</div>
   </div>
   <div class="movie-details__btn-more" #btn>
-    <button class="btn btn-solid" type="button" (click)="onGetTicket()">Buy ticket</button>
+    <button class="btn btn-solid" type="button" (click)="onGetTicket()" #btnInner><span #btnInnerTxt>Buy ticket</span></button>
   </div>
 </div>
