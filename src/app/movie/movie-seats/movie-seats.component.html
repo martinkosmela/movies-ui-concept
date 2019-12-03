@@ -12,7 +12,17 @@
       <div class="movie-seats__legend-value movie-seats__legend-value--selected">Selected</div>
     </div>
     <div class="movie-seats__date">
-      data
+      <select class="movie-seats__select-date">
+        <option>December 1</option>
+        <option>December 2</option>
+        <option>December 3</option>
+      </select>
+      <div class="movie-seats__select-time">
+        <input class="movie-seats__select-time" type="checkbox" id="1"/>
+        <label for="1">13:30</label>
+        <input class="movie-seats__select-time" type="checkbox" id="2"/>
+        <label for="2">14:30</label>
+      </div>
     </div>
     <div class="movie-seats__pay">
       <button class="btn btn-solid btn-action" type="button" (click)="onPay()" #btnInner><span>Pay</span></button>
