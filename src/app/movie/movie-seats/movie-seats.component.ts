@@ -19,7 +19,7 @@ export class MovieSeatsComponent implements OnInit {
     this.loadContainer();
   }
 
-  onCloseSeats() {
+  onCloseSeats(): void {
     this.asyncHideContainer().then(() => {
         this.seatsToggled.emit({
           reveal: false
@@ -28,7 +28,7 @@ export class MovieSeatsComponent implements OnInit {
     );
   }
 
-  loadContainer(): void {
+  loadContainer(): TimelineMax {
     let showContainer: TimelineMax = new TimelineMax();
     showContainer
       .to(this.seatsContainer.nativeElement, .6,
@@ -49,8 +49,8 @@ export class MovieSeatsComponent implements OnInit {
     return showContainer;
   }
 
-  asyncHideContainer() {
-    return new Promise ((resolve) => {
+  asyncHideContainer(): TimelineMax {
+    return new Promise<boolean>((resolve) => {
       let hideContainer: TimelineMax = new TimelineMax({
         onComplete: () => { 
           resolve(true)

@@ -33,7 +33,7 @@ export class MovieListingComponent implements OnInit {
     this.loadDetails();
   }
 
-  onCloseListing() {
+  onCloseListing(): void {
     this.asyncHideContainer().then(() => {
       this.detailsToggled.emit({
         reveal: false
@@ -41,16 +41,16 @@ export class MovieListingComponent implements OnInit {
     });
   }
 
-  onGetTicket() {
+  onGetTicket(): void {
     this.movieService.getTicket();
-    if(this.animateBtn()) {
+    this.animateBtn().then(() => {
       this.chooseSeatsToggled.emit({
         reveal: true
       })
-    };
+    })
   }
 
-	asyncHideContainer() {
+	asyncHideContainer(): TimelineMax {
     return new Promise ((resolve) => {
       let hideContainer: TimelineMax = new TimelineMax({
         onComplete: () => {
@@ -111,8 +111,12 @@ export class MovieListingComponent implements OnInit {
     return showDetails;
   }
 
-  animateBtn(): boolean {
-    let animateButton: TimelineMax = new TimelineMax();
+  async animateBtn(): TimelineMax {
+    let animateButton: TimelineMax = new TimelineMax({
+      onComplete: () => {
+        return true;
+      }
+    });
     animateButton
       .to(this.listingBtn.nativeElement, .1, {
         'margin': 'auto auto 0 auto'
@@ -129,8 +133,6 @@ export class MovieListingComponent implements OnInit {
       .set(this.listingBtn.nativeElement, { delay: 1, clearProps: "all" })
       .set(this.listingBtnInnerTxt.nativeElement, { clearProps: "all" })
       .set(this.listingBtnInner.nativeElement, { clearProps: "all" })
-
-    return true;
   }
 
 }
