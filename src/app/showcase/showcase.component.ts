@@ -77,7 +77,7 @@ export class ShowcaseComponent implements OnInit {
 
   onChooseSeatsToggled(chooseSeatsToggled: {reveal: boolean}) {
     this.chooseSeatsRevealed = chooseSeatsToggled.reveal;
-    console.log('complete from parent', this.chooseSeatsRevealed)
+    console.log('seats container revealed: ', this.chooseSeatsRevealed)
   }
 
 }

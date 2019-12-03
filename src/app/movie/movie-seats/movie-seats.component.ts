@@ -20,13 +20,12 @@ export class MovieSeatsComponent implements OnInit {
   }
 
   onCloseSeats() {
-    this.hideContainer();
-    console.log('close seats');
-    setTimeout(() => {
-      this.seatsToggled.emit({
-        reveal: false
-      })
-    }, 300)
+    this.asyncHideContainer().then(() => {
+        this.seatsToggled.emit({
+          reveal: false
+        })
+      },
+    );
   }
 
   loadContainer(): void {
@@ -50,18 +49,25 @@ export class MovieSeatsComponent implements OnInit {
     return showContainer;
   }
 
-  hideContainer(): void {
-    let hideContainer: TimelineMax = new TimelineMax();
-    hideContainer
+  asyncHideContainer() {
+    return new Promise ((resolve) => {
+      let hideContainer: TimelineMax = new TimelineMax({
+        onComplete: () => { 
+          resolve(true)
+        }
+      });
+      hideContainer
       .to(this.seatsContent.nativeElement, .1,
         {
-          opacity: 0,
+          opacity: 0
         }, 0)
-      .to(this.seatsContainer.nativeElement, .2, 
+      .to(this.seatsContainer.nativeElement, .3, 
         {
-          scale: 0,
-        })
-    return hideContainer;
+          scale: 0 
+        });
+    });
   }
+
+  
 
 }

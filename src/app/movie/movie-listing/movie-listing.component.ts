@@ -34,13 +34,11 @@ export class MovieListingComponent implements OnInit {
   }
 
   onCloseListing() {
-    this.hideContainer();
-    console.log('close');
-    setTimeout(() => {
+    this.asyncHideContainer().then(() => {
       this.detailsToggled.emit({
         reveal: false
       })
-    }, 300)
+    });
   }
 
   onGetTicket() {
@@ -52,15 +50,20 @@ export class MovieListingComponent implements OnInit {
     };
   }
 
-	hideContainer(): void {
-    let hideContainer: TimelineMax = new TimelineMax();
-    hideContainer.to(this.listingContainer.nativeElement, .3,
-      {
-        scaleX: 0.7,
-        opacity: 0,
-        ease: "power4"
-      })
-    return hideContainer;
+	asyncHideContainer() {
+    return new Promise ((resolve) => {
+      let hideContainer: TimelineMax = new TimelineMax({
+        onComplete: () => {
+          resolve(true);
+        }
+      });
+      hideContainer.to(this.listingContainer.nativeElement, .3,
+        {
+          scaleX: 0.7,
+          opacity: 0,
+          ease: "power4"
+        })
+    })
   }
 
   loadDetails(): void {
