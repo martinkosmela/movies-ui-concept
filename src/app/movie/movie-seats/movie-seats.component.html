@@ -2,6 +2,20 @@
   <div class="movie-seats__container" #container></div>
   <div class="movie-seats__content" #content>
     <div class="movie-seats__close btn-close" (click)="onCloseSeats()"></div>
-    movie seats works!
+    <div class="movie-seats__highlights">video</div>
+    <div class="movie-seats__choose-seat">
+      <div class="movie-seats__seat"></div>
+    </div>
+    <div class="movie-seats__legend">
+      <div class="movie-seats__legend-value movie-seats__legend-value--available">Available</div>
+      <div class="movie-seats__legend-value movie-seats__legend-value--taken">Taken</div>
+      <div class="movie-seats__legend-value movie-seats__legend-value--selected">Selected</div>
+    </div>
+    <div class="movie-seats__date">
+      data
+    </div>
+    <div class="movie-seats__pay">
+      <button class="btn btn-solid btn-action" type="button" (click)="onPay()" #btnInner><span>Pay</span></button>
+    </div>
   </div>
 </div>

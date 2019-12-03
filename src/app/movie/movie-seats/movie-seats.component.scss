@@ -21,15 +21,87 @@
     opacity: 0;
   }
   .movie-seats__close {
-    
   }
   .movie-seats__content {
-    font-size: 2rem;
     position: relative;
     padding: 50px 20px 20px 20px;
     width: 100vw;
     height: 100vh;
     z-index: 6;
     opacity: 0;
+    .movie-seats__highlights {
+      height: 120px;
+      width: 100%;
+      background-color: $un-grey;
+    }
+    .movie-seats__choose-seat {
+      padding: 15px 0;
+      .movie-seats__seat {
+        width: 30px;
+        height: 30px;
+        margin: 5px;
+        background-color: transparent;
+        position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 50%;
+          bottom: 0;
+          background-color: $un-grey;
+          border-radius: 5px;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          width: 70%;
+          height: 70%;
+          bottom: 3px;
+          left: 50%;
+          background-color: $un-grey;
+          border: 2px solid $dark;
+          border-radius: 5px;
+          transform: translateX(-50%);
+        }
+      }
+      .movie-seats__seat--selected {
+        &:before, &:after {
+          background-color: $red;
+        }
+      }
+    }
+    .movie-seats__legend {
+      display: flex;
+      justify-content: space-between;
+      .movie-seats__legend-value {
+        margin-left: 15px;
+        position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          top: 50%;
+          left: -15px;
+          transform: translateY(-50%);
+          border-radius: 10px;
+          background-color: $grey;
+        }
+      }
+      .movie-seats__legend-value.movie-seats__legend-value--available::before {
+        background-color: $av-grey;
+      }
+      .movie-seats__legend-value.movie-seats__legend-value--taken::before {
+        background-color: $un-grey;
+      }
+      .movie-seats__legend-value.movie-seats__legend-value--selected::before {
+        background-color: $red;
+      }
+    }
+    .movie-seats__select-date {
+
+    }
+    .movie-seats__pay {
+    }
   }
 }

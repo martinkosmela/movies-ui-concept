@@ -4,6 +4,7 @@
   font-size: .9rem;
   font-weight: 600;
   padding: 10px 20px;
+  border-radius: 5px;
 }
 
 .btn-solid {
@@ -18,6 +19,11 @@
     outline: none;
     cursor: pointer;
   }
+}
+
+.btn-action {
+  background-color: $red;
+  padding: 16px 20px;
 }
 
 .btn-close {
