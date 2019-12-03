@@ -18,15 +18,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   .movie-listing__close {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    border: 1px solid $grey;
-    color: $grey;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: .9rem;
-    cursor: pointer;
+    
   }
   .movie-listing__header {
     text-align: center;

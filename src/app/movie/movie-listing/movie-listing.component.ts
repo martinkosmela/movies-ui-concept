@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, ViewChildren } from '@angular/core';
-import { TimelineMax, TweenMax } from 'gsap/all';
+import { TimelineMax } from 'gsap/all';
 
 import { Movie } from '../../models/movie';
 import { MovieService } from '../../services/movie.service';
