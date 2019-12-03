@@ -2,11 +2,59 @@
 
 .movie-seats {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 50%;
-  background-color: $dark;
+  height: 100%;
+  overflow: hidden;
   z-index: 4;
-  opacity: 0;
+  background-color: transparent;
+  opacity: 1;
+  .movie-seats__container {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: $dark;
+    z-index: 5;
+    opacity: 0;
+  }
+  .movie-seats__close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $light;
+      transform: rotate(45deg);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $light;
+      transform: rotate(-45deg);
+    }
+  }
+  .movie-seats__content {
+    font-size: 2rem;
+    position: relative;
+    padding: 50px 20px 20px 20px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 6;
+    opacity: 0;
+  }
 }

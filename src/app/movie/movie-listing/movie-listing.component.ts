@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, ViewChildren } from '@angular/core';
-import { TimelineMax } from 'gsap/all';
+import { TimelineMax, TweenMax } from 'gsap/all';
 
 import { Movie } from '../../models/movie';
 import { MovieService } from '../../services/movie.service';
@@ -111,18 +111,22 @@ export class MovieListingComponent implements OnInit {
   animateBtn(): boolean {
     let animateButton: TimelineMax = new TimelineMax();
     animateButton
-      .to(this.listingBtnInnerTxt.nativeElement, .1, {
-        'display': 'none'
-      }, 0)
       .to(this.listingBtn.nativeElement, .1, {
         'margin': 'auto auto 0 auto'
       }, 0)
-      .to(this.listingBtnInner.nativeElement, .3, {
+      .to(this.listingBtnInnerTxt.nativeElement, .1, {
+        'display': 'none'
+      }, 0)
+      .to(this.listingBtnInner.nativeElement, .4, {
         "width": "50px",
         "height": "50px",
         "borderRadius": "50px",
         "backgroundColor": "#222020"
-      }, 0)
+      })
+      .set(this.listingBtn.nativeElement, { delay: 1, clearProps: "all" })
+      .set(this.listingBtnInnerTxt.nativeElement, { clearProps: "all" })
+      .set(this.listingBtnInner.nativeElement, { clearProps: "all" })
+
     return true;
   }
 
