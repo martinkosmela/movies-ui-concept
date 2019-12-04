@@ -4,7 +4,15 @@
     <div class="movie-seats__close btn-close" (click)="onCloseSeats()"></div>
     <div class="movie-seats__highlights">video</div>
     <div class="movie-seats__choose-seat">
-      <div class="movie-seats__seat"></div>
+      <ng-container *ngFor="let seat of seatsObject">
+        <div 
+          class="movie-seats__seat"
+          [id]="seat.id"
+          [ngClass]="'movie-seats__seat--'+seat.status"
+          (click)="selectSeat(seat)"
+        >
+        </div>
+      </ng-container>
     </div>
     <div class="movie-seats__legend">
       <div class="movie-seats__legend-value movie-seats__legend-value--available">Available</div>

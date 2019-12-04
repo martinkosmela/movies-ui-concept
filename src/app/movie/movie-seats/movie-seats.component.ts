@@ -12,11 +12,37 @@ export class MovieSeatsComponent implements OnInit {
   @ViewChild('content', {static: true}) seatsContent: ElementRef;
 
   @Output() seatsToggled = new EventEmitter<{reveal: boolean}>();
-  
+
+  columns: number[] = [1,2,3,4,5,6,7,8];
+  rows: number[] = [1,2,3,4,5,6];
+
+  unavailableSeats: string[] = ['A1','A2','A6','B6','C6','D6','E6','F6',];
+  takenSeats: string[] = ['B1','B2','B3'];
+  selectedSeats: {id: string, status: string}[] = [];
+
+  seatsObject: {id: string, status: string}[] = [
+    // {
+    //   id: 'A1',
+    //   status: 'unavailable',
+    // },
+    // {
+    //   id: 'A2',
+    //   status: 'available',
+    // },
+    // {
+    //   id: 'A3',
+    //   status: 'taken',
+    // }
+  ]
+
   constructor() { }
 
   ngOnInit() {
     this.loadContainer();
+  }
+
+  ngAfterViewInit() {
+    this.generateSeatsGrid();
   }
 
   onCloseSeats(): void {
@@ -66,6 +92,61 @@ export class MovieSeatsComponent implements OnInit {
           scale: 0 
         });
     });
+  }
+
+  generateSeatsGrid(): void {
+    this.rows.forEach(row => {
+      this.columns.forEach(column => {
+        const rowStr = String.fromCharCode(96 + row).toUpperCase();
+        const columnNum = column;
+        const seatId = rowStr + columnNum;
+
+        let seatStatus = this.checkSeatStatus(seatId);
+
+        let seatObject = {
+          id: seatId,
+          status: seatStatus || 'available'
+        }
+
+        this.seatsObject.push(seatObject);
+      })
+    })
+  }
+
+  checkSeatStatus(id) {
+    let status: string;
+
+    this.takenSeats.filter(seat => {
+      if(id === seat) {
+        status = 'taken'
+      }
+    })
+    this.unavailableSeats.filter(seat => {
+      if(id === seat) {
+        status = 'unavailable'
+      }
+    })
+    return status;
+  }
+
+  selectSeat(seat) {
+    if (seat.status != 'taken' && seat.status != 'unavailable' && seat.status == 'available') {
+      this.seatsObject.filter(s => {
+        if (s.id === seat.id) {
+          s.status = 'selected';
+          this.selectedSeats.push(s);
+        }
+      })
+    } else if (seat.status == 'selected') {
+      this.seatsObject.filter(s => {
+        if (s.id === seat.id) {
+          s.status = 'available';
+        }
+      })
+      this.selectedSeats = this.selectedSeats.filter((selectedSeat) => {
+        return selectedSeat != seat;
+      })
+    }
   }
 
   

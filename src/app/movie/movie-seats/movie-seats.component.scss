@@ -36,6 +36,8 @@
     }
     .movie-seats__choose-seat {
       padding: 15px 0;
+      display: flex;
+      flex-wrap: wrap;
       .movie-seats__seat {
         width: 30px;
         height: 30px;
@@ -67,6 +69,21 @@
       .movie-seats__seat--selected {
         &:before, &:after {
           background-color: $red;
+        }
+      }
+      .movie-seats__seat--available {
+        &:before, &:after {
+          background-color: $av-grey;
+        }
+      }
+      .movie-seats__seat--taken {
+        &:before, &:after {
+          background-color: $un-grey;
+        }
+      }
+      .movie-seats__seat--unavailable {
+        &:before, &:after {
+          display: none;
         }
       }
     }
