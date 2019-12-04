@@ -104,24 +104,40 @@
       display: flex;
       .movie-seats__select-date {
         margin-right: 10px;
+        background-color: transparent;
+        border: 0;
+        color: $light;
+        font-size: 1.1rem;
+        &:focus {
+          outline: none;
+        }
+        option {
+          background-color: $dark;
+          border: 0;
+        }
       }
       .movie-seats__select-time {
-        input {
+        overflow: auto;
+        display: flex;
+        .movie-seats__time-input {
           display: none;
           position: absolute;
           z-index: -9999;
           left: 9999px;
           top: 9999px;
         }
-        label {
-          height: 25px;
+        .movie-seats__time-label {
           border: 1px solid $un-grey;
           border-radius: 3px;
           padding: 4px 8px;
           margin-right: 5px;
+          font-size: 1.1rem;
           &:last-child {
             margin-right: 0;
           }
+        }
+        .movie-seats__time-label--selected {
+          background-color: $red;
         }
       }
     }

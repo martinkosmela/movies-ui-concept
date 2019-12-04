@@ -12,7 +12,7 @@ export class MovieSeatsComponent implements OnInit {
   @ViewChild('content', {static: true}) seatsContent: ElementRef;
 
   @Output() seatsToggled = new EventEmitter<{reveal: boolean}>();
-
+  
   constructor() { }
 
   ngOnInit() {
