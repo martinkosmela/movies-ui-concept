@@ -32,62 +32,73 @@
     display: flex;
     flex-direction: column;
     .movie-seats__screen {
+      margin-top: 10px;
       height: 120px;
       width: 100%;
       background-color: $un-grey;
     }
-    .movie-seats__choose-seat {
+    .movie-seats__choose-seat-container {
       padding: 15px 0;
       display: flex;
       flex-wrap: wrap;
-      .movie-seats__seat {
-        width: 30px;
-        height: 30px;
-        margin: 5px;
-        background-color: transparent;
-        position: relative;
-        &:before {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 50%;
-          bottom: 0;
-          background-color: $un-grey;
-          border-radius: 5px;
-          z-index: 1;
+      margin: 0 auto;
+      overflow: auto;
+      max-width: 100%;
+      .movie-seats__choose-seat-cell {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        max-width: 350px;
+        max-height: 35px;
+        .movie-seats__seat {
+          width: 30px;
+          height: 30px;
+          margin: 5px;
+          background-color: transparent;
+          position: relative;
+          &:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 40%;
+            bottom: 0;
+            background-color: $un-grey;
+            border-radius: 5px;
+            z-index: 1;
+          }
+          &:after {
+            content: '';
+            position: absolute;
+            width: 65%;
+            height: 65%;
+            bottom: 3px;
+            left: 50%;
+            background-color: $un-grey;
+            border: 2px solid $dark;
+            border-radius: 5px;
+            transform: translateX(-50%);
+            z-index: 2;
+          }
         }
-        &:after {
-          content: '';
-          position: absolute;
-          width: 70%;
-          height: 70%;
-          bottom: 3px;
-          left: 50%;
-          background-color: $un-grey;
-          border: 2px solid $dark;
-          border-radius: 5px;
-          transform: translateX(-50%);
-          z-index: 2;
+        .movie-seats__seat--selected {
+          &:before, &:after {
+            background-color: $red;
+          }
         }
-      }
-      .movie-seats__seat--selected {
-        &:before, &:after {
-          background-color: $red;
+        .movie-seats__seat--available {
+          &:before, &:after {
+            background-color: $av-grey;
+          }
         }
-      }
-      .movie-seats__seat--available {
-        &:before, &:after {
-          background-color: $av-grey;
+        .movie-seats__seat--taken {
+          &:before, &:after {
+            background-color: $un-grey;
+          }
         }
-      }
-      .movie-seats__seat--taken {
-        &:before, &:after {
-          background-color: $un-grey;
-        }
-      }
-      .movie-seats__seat--unavailable {
-        &:before, &:after {
-          display: none;
+        .movie-seats__seat--unavailable {
+          &:before, &:after {
+            display: none;
+          }
         }
       }
     }

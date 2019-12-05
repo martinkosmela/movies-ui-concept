@@ -3,17 +3,19 @@
   <div class="movie-seats__content" #content>
     <div class="movie-seats__close btn-close" (click)="onCloseSeats()"></div>
     <div class="movie-seats__screen"></div>
-    <div class="movie-seats__choose-seat">
-      <ng-container *ngFor="let row of roomSeats?.room">
-        <div 
-          class="movie-seats__seat"
-          *ngFor="let seat of row.rowSeats"
-          [id]="row.rowLabel+seat.seatNumber"
-          [ngClass]="generateSeatClass(seat)"
-          (click)="selectSeat(seat)"
-        >
-        </div>
-      </ng-container>
+    <div class="movie-seats__choose-seat-container">
+      <div class="movie-seats__choose-seat-cell" *ngFor="let row of roomSeats?.room">
+        <ng-container >
+          <div 
+            class="movie-seats__seat"
+            *ngFor="let seat of row.rowSeats"
+            [id]="row.rowLabel+seat.seatNumber"
+            [ngClass]="generateSeatClass(seat)"
+            (click)="selectSeat(seat)"
+          >
+          </div>
+        </ng-container>
+      </div>
     </div>
     <div class="movie-seats__legend">
       <div class="movie-seats__legend-value movie-seats__legend-value--available">Available</div>
@@ -28,7 +30,7 @@
       </select>
       <div class="movie-seats__select-time">
         <input class="movie-seats__time-input" type="checkbox" id="1"/>
-        <label class="movie-seats__time-label" for="1">13:30</label>
+        <label class="movie-seats__time-label movie-seats__time-label--selected" for="1">13:30</label>
         <input class="movie-seats__time-input" type="checkbox" id="2"/>
         <label class="movie-seats__time-label" for="2">14:30</label>
         <input class="movie-seats__time-input" type="checkbox" id="3"/>
@@ -36,7 +38,7 @@
         <input class="movie-seats__time-input" type="checkbox" id="4"/>
         <label class="movie-seats__time-label" for="4">16:30</label>
         <input class="movie-seats__time-input" type="checkbox" id="5"/>
-        <label class="movie-seats__time-label movie-seats__time-label--selected" for="5">17:30</label>
+        <label class="movie-seats__time-label" for="5">17:30</label>
       </div>
     </div>
     <div class="movie-seats__pay">
