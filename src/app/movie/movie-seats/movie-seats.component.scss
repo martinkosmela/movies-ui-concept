@@ -29,7 +29,9 @@
     height: 100vh;
     z-index: 6;
     opacity: 0;
-    .movie-seats__highlights {
+    display: flex;
+    flex-direction: column;
+    .movie-seats__screen {
       height: 120px;
       width: 100%;
       background-color: $un-grey;
@@ -52,6 +54,7 @@
           bottom: 0;
           background-color: $un-grey;
           border-radius: 5px;
+          z-index: 1;
         }
         &:after {
           content: '';
@@ -64,6 +67,7 @@
           border: 2px solid $dark;
           border-radius: 5px;
           transform: translateX(-50%);
+          z-index: 2;
         }
       }
       .movie-seats__seat--selected {
@@ -159,6 +163,7 @@
       }
     }
     .movie-seats__pay {
+      margin-top: auto;
     }
   }
 }

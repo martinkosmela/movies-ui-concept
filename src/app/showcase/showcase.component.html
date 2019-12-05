@@ -15,4 +15,4 @@
   </div>
 </swiper>
 <app-movie-listing *ngIf="detailsRevealed" (chooseSeatsToggled)="onChooseSeatsToggled($event)" (detailsToggled)="onDetailsToggled($event)" [movie]="selectedMovie" [genres]="selectedMovieGenres" #container></app-movie-listing>
-<app-movie-seats *ngIf="!chooseSeatsRevealed" (seatsToggled)="onChooseSeatsToggled($event)"></app-movie-seats>
+<app-movie-seats *ngIf="chooseSeatsRevealed" [movieId]="selectedMovie.imdbID" (seatsToggled)="onChooseSeatsToggled($event)"></app-movie-seats>

@@ -1,5 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output, Input } from '@angular/core';
 import { TimelineMax } from 'gsap/all';
+
+import {Cinema} from '../../models/Cinema';
+import {CinemaService} from '../../services/cinema.service';
 
 @Component({
   selector: 'app-movie-seats',
@@ -13,36 +16,31 @@ export class MovieSeatsComponent implements OnInit {
 
   @Output() seatsToggled = new EventEmitter<{reveal: boolean}>();
 
-  columns: number[] = [1,2,3,4,5,6,7,8];
-  rows: number[] = [1,2,3,4,5,6];
+  @Input() movieId: string;
 
-  unavailableSeats: string[] = ['A1','A2','A6','B6','C6','D6','E6','F6',];
-  takenSeats: string[] = ['B1','B2','B3'];
-  selectedSeats: {id: string, status: string}[] = [];
+  roomSeats: Cinema;
 
-  seatsObject: {id: string, status: string}[] = [
-    // {
-    //   id: 'A1',
-    //   status: 'unavailable',
-    // },
-    // {
-    //   id: 'A2',
-    //   status: 'available',
-    // },
-    // {
-    //   id: 'A3',
-    //   status: 'taken',
-    // }
-  ]
-
-  constructor() { }
+  constructor(
+    private cinemaService: CinemaService,
+  ) { }
 
   ngOnInit() {
     this.loadContainer();
+    this.fetchSeats(this.movieId);
   }
 
   ngAfterViewInit() {
-    this.generateSeatsGrid();
+  }
+
+  fetchSeats(showId: string): void {
+    this.cinemaService.getSeats()
+      .subscribe(cinema => {
+        this.roomSeats = cinema.find(c => 
+          c.showId === showId
+        )
+      });
+
+    console.log(this.roomSeats)
   }
 
   onCloseSeats(): void {
@@ -94,61 +92,23 @@ export class MovieSeatsComponent implements OnInit {
     });
   }
 
-  generateSeatsGrid(): void {
-    this.rows.forEach(row => {
-      this.columns.forEach(column => {
-        const rowStr = String.fromCharCode(96 + row).toUpperCase();
-        const columnNum = column;
-        const seatId = rowStr + columnNum;
-
-        let seatStatus = this.checkSeatStatus(seatId);
-
-        let seatObject = {
-          id: seatId,
-          status: seatStatus || 'available'
-        }
-
-        this.seatsObject.push(seatObject);
-      })
-    })
-  }
-
-  checkSeatStatus(id) {
-    let status: string;
-
-    this.takenSeats.filter(seat => {
-      if(id === seat) {
-        status = 'taken'
-      }
-    })
-    this.unavailableSeats.filter(seat => {
-      if(id === seat) {
-        status = 'unavailable'
-      }
-    })
-    return status;
-  }
-
-  selectSeat(seat) {
-    if (seat.status != 'taken' && seat.status != 'unavailable' && seat.status == 'available') {
-      this.seatsObject.filter(s => {
-        if (s.id === seat.id) {
-          s.status = 'selected';
-          this.selectedSeats.push(s);
-        }
-      })
-    } else if (seat.status == 'selected') {
-      this.seatsObject.filter(s => {
-        if (s.id === seat.id) {
-          s.status = 'available';
-        }
-      })
-      this.selectedSeats = this.selectedSeats.filter((selectedSeat) => {
-        return selectedSeat != seat;
-      })
+  generateSeatClass(seat) {
+    if (seat.available === true) {
+      return 'movie-seats__seat--available';
+    } else if (seat.taken === true) {
+      return 'movie-seats__seat--taken';
+    } else if (seat.selected === true) {
+      return 'movie-seats__seat--selected';
+    } else {
+      return 'movie-seats__seat--unavailable';
     }
   }
 
-  
+  selectSeat(seat) {
+    if (seat.seatNumber != -1 && !seat.taken) {
+      seat.available = !seat.available;
+      seat.selected = !seat.selected;
+    }
+  }
 
 }

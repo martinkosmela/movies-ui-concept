@@ -2,13 +2,14 @@
   <div class="movie-seats__container" #container></div>
   <div class="movie-seats__content" #content>
     <div class="movie-seats__close btn-close" (click)="onCloseSeats()"></div>
-    <div class="movie-seats__highlights">video</div>
+    <div class="movie-seats__screen"></div>
     <div class="movie-seats__choose-seat">
-      <ng-container *ngFor="let seat of seatsObject">
+      <ng-container *ngFor="let row of roomSeats?.room">
         <div 
           class="movie-seats__seat"
-          [id]="seat.id"
-          [ngClass]="'movie-seats__seat--'+seat.status"
+          *ngFor="let seat of row.rowSeats"
+          [id]="row.rowLabel+seat.seatNumber"
+          [ngClass]="generateSeatClass(seat)"
           (click)="selectSeat(seat)"
         >
         </div>
