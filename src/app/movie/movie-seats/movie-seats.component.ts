@@ -111,16 +111,16 @@ export class MovieSeatsComponent implements OnInit {
     if (seat.seatNumber != -1 && !seat.taken) {
       seat.available = !seat.available;
       seat.selected = !seat.selected;
-    }
 
-    if (seat.selected) {
-      this.selectedSeats.push(seat)
-    } else {
-      this.selectedSeats = this.selectedSeats.filter((s) => {
-        return s.seatId != seat.seatId
-      })
+      if (seat.selected) {
+        this.selectedSeats.push(seat)
+      } else {
+        this.selectedSeats = this.selectedSeats.filter((s) => {
+          return s.seatId != seat.seatId
+        })
+      }
+      this.calculateCost(this.selectedSeats)
     }
-    this.calculateCost(this.selectedSeats)
   }
 
   selectTime(id): void {
