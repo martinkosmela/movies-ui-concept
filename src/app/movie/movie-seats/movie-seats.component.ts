@@ -20,6 +20,8 @@ export class MovieSeatsComponent implements OnInit {
 
   roomSeats: Cinema;
   selectedTime: number = 0;
+  selectedSeats: any[] = [];
+  seatsCost: number = 0;
 
   constructor(
     private cinemaService: CinemaService,
@@ -93,7 +95,7 @@ export class MovieSeatsComponent implements OnInit {
     });
   }
 
-  generateSeatClass(seat) {
+  generateSeatClass(seat): string {
     if (seat.available === true) {
       return 'movie-seats__seat--available';
     } else if (seat.taken === true) {
@@ -105,15 +107,51 @@ export class MovieSeatsComponent implements OnInit {
     }
   }
 
-  selectSeat(seat) {
+  selectSeat(seat): void {
     if (seat.seatNumber != -1 && !seat.taken) {
       seat.available = !seat.available;
       seat.selected = !seat.selected;
     }
+
+    if (seat.selected) {
+      this.selectedSeats.push(seat)
+    } else {
+      this.selectedSeats = this.selectedSeats.filter((s) => {
+        return s.seatId != seat.seatId
+      })
+    }
+    this.calculateCost(this.selectedSeats)
   }
 
-  selectTime(id) {
+  selectTime(id): void {
     this.selectedTime = id;
+  }
+
+  calculateCost(seats): void{
+    if(seats.length > 0) {
+      this.seatsCost = seats.reduce((acc, val) => {
+        return acc + val.price;
+      }, 0)
+    } else {
+      this.seatsCost = 0;
+    }
+  }
+
+  onPay() {
+    if(this.seatsCost > 0) {
+      alert('Paid ' + this.seatsCost + ' for ' + this.selectedSeats.length + ' seats');
+      
+      this.selectedSeats.forEach((seat) => {
+        seat.available = false;
+        seat.taken = true;
+      })
+
+      this.seatsCost = 0;
+      this.selectedSeats = [];
+
+    } else {
+      alert('Choose your seats, please');
+    }
   }
 
 }

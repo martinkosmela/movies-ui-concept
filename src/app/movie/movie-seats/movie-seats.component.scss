@@ -176,6 +176,9 @@
     }
     .movie-seats__pay {
       margin-top: auto;
+      span:first-child {
+        margin-right: 5px;
+      }
     }
   }
 }

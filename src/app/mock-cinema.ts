@@ -127,7 +127,7 @@ export const CINEMA: Cinema[] = [
         rowLabel: 'B',
         rowSeats: [
           {
-            seatId: 111,
+            seatId: 103,
             seatNumber: 1,
             positionRow: 1,
             positionColumn: 0,
@@ -137,7 +137,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 222,
+            seatId: 104,
             seatNumber: 2,
             positionRow: 1,
             positionColumn: 1,
@@ -147,7 +147,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 333,
+            seatId: 105,
             seatNumber: 3,
             positionRow: 1,
             positionColumn: 2,
@@ -157,7 +157,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 444,
+            seatId: 106,
             seatNumber: 4,
             positionRow: 1,
             positionColumn: 3,
@@ -167,7 +167,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 555,
+            seatId: 107,
             seatNumber: 5,
             positionRow: 1,
             positionColumn: 4,
@@ -177,7 +177,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 666,
+            seatId: 108,
             seatNumber: -1,
             positionRow: 1,
             positionColumn: 5,
@@ -187,7 +187,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 777,
+            seatId: 109,
             seatNumber: 6,
             positionRow: 1,
             positionColumn: 6,
@@ -197,7 +197,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 888,
+            seatId: 110,
             seatNumber: 7,
             positionRow: 1,
             positionColumn: 7,
@@ -207,7 +207,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 999,
+            seatId: 112,
             seatNumber: 8,
             positionRow: 0,
             positionColumn: 8,
@@ -217,7 +217,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 101,
+            seatId: 113,
             seatNumber: 9,
             positionRow: 0,
             positionColumn: 9,
@@ -227,7 +227,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 102,
+            seatId: 114,
             seatNumber: 10,
             positionRow: 0,
             positionColumn: 10,
@@ -242,7 +242,7 @@ export const CINEMA: Cinema[] = [
         rowLabel: 'C',
         rowSeats: [
           {
-            seatId: 111,
+            seatId: 115,
             seatNumber: 1,
             positionRow: 2,
             positionColumn: 0,
@@ -252,7 +252,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 222,
+            seatId: 116,
             seatNumber: 2,
             positionRow: 2,
             positionColumn: 1,
@@ -262,7 +262,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 333,
+            seatId: 117,
             seatNumber: 3,
             positionRow: 2,
             positionColumn: 2,
@@ -272,7 +272,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 444,
+            seatId: 118,
             seatNumber: 4,
             positionRow: 2,
             positionColumn: 3,
@@ -282,7 +282,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 555,
+            seatId: 119,
             seatNumber: 5,
             positionRow: 2,
             positionColumn: 4,
@@ -292,7 +292,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 666,
+            seatId: 120,
             seatNumber: -1,
             positionRow: 2,
             positionColumn: 5,
@@ -302,7 +302,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 777,
+            seatId: 121,
             seatNumber: 6,
             positionRow: 2,
             positionColumn: 6,
@@ -312,7 +312,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 888,
+            seatId: 123,
             seatNumber: 7,
             positionRow: 2,
             positionColumn: 7,
@@ -322,7 +322,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 999,
+            seatId: 124,
             seatNumber: 8,
             positionRow: 0,
             positionColumn: 8,
@@ -332,7 +332,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 101,
+            seatId: 125,
             seatNumber: 9,
             positionRow: 0,
             positionColumn: 9,
@@ -342,7 +342,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 102,
+            seatId: 126,
             seatNumber: 10,
             positionRow: 0,
             positionColumn: 10,
@@ -357,7 +357,7 @@ export const CINEMA: Cinema[] = [
         rowLabel: 'D',
         rowSeats: [
           {
-            seatId: 111,
+            seatId: 127,
             seatNumber: 1,
             positionRow: 3,
             positionColumn: 0,
@@ -367,7 +367,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 222,
+            seatId: 128,
             seatNumber: 2,
             positionRow: 3,
             positionColumn: 1,
@@ -377,7 +377,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 333,
+            seatId: 129,
             seatNumber: 3,
             positionRow: 3,
             positionColumn: 2,
@@ -387,7 +387,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 444,
+            seatId: 130,
             seatNumber: 4,
             positionRow: 3,
             positionColumn: 3,
@@ -397,7 +397,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 555,
+            seatId: 131,
             seatNumber: 5,
             positionRow: 3,
             positionColumn: 4,
@@ -407,7 +407,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 666,
+            seatId: 132,
             seatNumber: -1,
             positionRow: 3,
             positionColumn: 5,
@@ -417,7 +417,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 777,
+            seatId: 134,
             seatNumber: 6,
             positionRow: 3,
             positionColumn: 6,
@@ -427,7 +427,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 888,
+            seatId: 135,
             seatNumber: 7,
             positionRow: 3,
             positionColumn: 7,
@@ -437,7 +437,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 999,
+            seatId: 136,
             seatNumber: 8,
             positionRow: 0,
             positionColumn: 8,
@@ -447,7 +447,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 101,
+            seatId: 137,
             seatNumber: 9,
             positionRow: 0,
             positionColumn: 9,
@@ -457,7 +457,7 @@ export const CINEMA: Cinema[] = [
             selected: false,
           },
           {
-            seatId: 102,
+            seatId: 138,
             seatNumber: 10,
             positionRow: 0,
             positionColumn: 10,
