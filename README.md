@@ -11,6 +11,8 @@
 This is a concept of UI implementation for a mobile version of the ticket reservation system in cinema. 
 Inspired by design of dribbble.com user https://dribbble.com/Dimest
 
+![](UI-concept.gif)
+
 # MoviesUiConcept
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
