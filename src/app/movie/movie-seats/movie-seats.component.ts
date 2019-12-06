@@ -107,7 +107,7 @@ export class MovieSeatsComponent implements OnInit {
     }
   }
 
-  selectSeat(seat): void {
+  selectSeat(seat): any {
     if (seat.seatNumber != -1 && !seat.taken) {
       seat.available = !seat.available;
       seat.selected = !seat.selected;
@@ -137,7 +137,7 @@ export class MovieSeatsComponent implements OnInit {
     }
   }
 
-  onPay() {
+  onPay(): void {
     if(this.seatsCost > 0) {
       alert('Paid ' + this.seatsCost + ' for ' + this.selectedSeats.length + ' seats');
       

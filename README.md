@@ -1,8 +1,15 @@
 # Technologies used
 
-- Angular 8
+- Angular 8 / Typescript
 - OMDB API http://www.omdbapi.com/ 
 - Swiperjs https://swiperjs.com/
+- GSAP https://greensock.com/gsap/
+- SCSS
+
+# Description
+
+This is a concept of UI implementation for a mobile version of the ticket reservation system in cinema. 
+Inspired by design of dribbble.com user https://dribbble.com/Dimest
 
 # MoviesUiConcept
 
