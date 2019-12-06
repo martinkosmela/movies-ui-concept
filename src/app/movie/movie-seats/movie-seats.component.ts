@@ -19,6 +19,7 @@ export class MovieSeatsComponent implements OnInit {
   @Input() movieId: string;
 
   roomSeats: Cinema;
+  selectedTime: number = 0;
 
   constructor(
     private cinemaService: CinemaService,
@@ -109,6 +110,10 @@ export class MovieSeatsComponent implements OnInit {
       seat.available = !seat.available;
       seat.selected = !seat.selected;
     }
+  }
+
+  selectTime(id) {
+    this.selectedTime = id;
   }
 
 }
